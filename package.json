@@ -1,0 +1,43 @@
+{
+  "name": "deck.glfw",
+  "version": "0.0.1",
+  "description": "GLFW deck.gl wrapper via webgl-raub and glfw-raub",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "start() { ./start.sh node -r esm \"demo/${1:-basic}.js\"; }; start"
+  },
+  "keywords": [],
+  "author": "Paul Taylor <paul.e.taylor@me.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "esm": "3.2.25"
+  },
+  "dependencies": {
+    "3d-core-raub": "2.1.2",
+    "@deck.gl/core": "^7.2.0-beta.2",
+    "@deck.gl/layers": "^7.2.0-beta.2",
+    "@luma.gl/addons": "^7.2.0-beta.1",
+    "@luma.gl/constants": "^7.2.0-beta.1",
+    "@luma.gl/core": "^7.2.0-beta.1",
+    "addon-tools-raub": "trxcllnt/addon-tools-raub#node12",
+    "cross-fetch": "^3.0.4",
+    "glfw-raub": "trxcllnt/glfw-raub#node12",
+    "image-raub": "2.1.0",
+    "math.gl": "^2.3.0",
+    "webgl-raub": "trxcllnt/webgl-raub#node12"
+  },
+  "resolutions": {
+    "**/addon-tools-raub": "trxcllnt/addon-tools-raub#node12",
+    "**/glfw-raub": "trxcllnt/glfw-raub#node12",
+    "**/webgl-raub": "trxcllnt/webgl-raub#node12"
+  },
+  "esm": {
+    "cjs": true,
+    "force": true,
+    "mode": "auto",
+    "cache": false,
+    "sourceMap": true,
+    "mainFields": ["esnext", "module", "main"]
+  }
+}

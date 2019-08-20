@@ -5,14 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "start() { ./start.sh \"demo/${1:-basic}\"; }; start"
+    "start": "start() { ./start.sh \"$@\"; }; start"
   },
   "keywords": [],
   "author": "Paul Taylor <paul.e.taylor@me.com>",
   "license": "MIT",
   "devDependencies": {
-    "esm": "3.2.25",
-    "segfault-handler": "1.3.0"
+    "esm": "^3.2.25",
+    "segfault-handler": "^1.3.0"
   },
   "dependencies": {
     "3d-core-raub": "3.0.0",

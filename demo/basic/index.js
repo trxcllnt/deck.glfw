@@ -1,5 +1,12 @@
+const SegfaultHandler = require('segfault-handler');
+
+SegfaultHandler.registerHandler('./crash.log');
+
 // Creates the GLFW Window. Must be required before '@deck.gl/core' so mjolnir is patched first.
 const deckGLFWConfig = require('../');
+
+// deckGLFWConfig.gl.clearColor(1, 1, 1, 1);
+// deckGLFWConfig.gl.clear(deckGLFWConfig.gl.COLOR_BUFFER_BIT);
 
 // Change any window properties you like
 // deckGLFWConfig.document.mode = 'borderless';
@@ -17,13 +24,14 @@ const AIR_PORTS =
 const INITIAL_VIEW_STATE = {
     latitude: 51.47,
     longitude: 0.45,
-    zoom: 4,
+    zoom: 1,
     bearing: 0,
     pitch: 30
 };
 
 module.exports = new Deck({
     ...deckGLFWConfig,
+    debug: true,
     initialViewState: INITIAL_VIEW_STATE,
     controller: true,
     layers: [
@@ -37,7 +45,9 @@ module.exports = new Deck({
             opacity: 0.4,
             getLineDashArray: [3, 3],
             getLineColor: [60, 60, 60],
-            getFillColor: [200, 200, 200]
+            getFillColor: [200, 200, 200],
+            // Interactive props
+            pickable: false,
         }),
         new GeoJsonLayer({
             id: 'airports',
@@ -65,7 +75,9 @@ module.exports = new Deck({
             getTargetPosition: f => f.geometry.coordinates,
             getSourceColor: [0, 128, 200],
             getTargetColor: [200, 0, 80],
-            getWidth: 1
+            getWidth: 1,
+            // Interactive props
+            pickable: false,
         })
     ]
 });

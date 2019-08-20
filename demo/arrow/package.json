@@ -1,0 +1,25 @@
+{
+  "name": "@deck.glfw/arrow-demo",
+  "main": "index.js",
+  "version": "0.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "@deck.gl/core": "6.4.10",
+    "@deck.gl/layers": "6.4.10",
+    "apache-arrow": "0.14.1",
+    "gl-vec2": "1.3.0",
+    "gl-vec3": "1.1.3",
+    "gl-vec4": "1.0.1",
+    "gl-mat3": "2.0.0",
+    "gl-mat4": "1.2.0",
+    "luma.gl": "6.4.3"
+  },
+  "esm": {
+    "cjs": true,
+    "force": true,
+    "mode": "auto",
+    "cache": false,
+    "sourceMap": true,
+    "mainFields": ["esnext", "module", "main"]
+  }
+}

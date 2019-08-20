@@ -5,6 +5,7 @@ const { Document } = require('./lib/glfw');
 Document.setWebgl(webgl);
 Document.setImage(Image);
 
+global.gl = webgl;
 global.cwrap = null;
 global.Image = Image;
 global.window = Object.create(global);
@@ -27,18 +28,22 @@ Object.setPrototypeOf(window, document);
 
 const canvas = document.createElement('canvas');
 
-webgl.canvas = canvas;
-webgl.viewportWidth = canvas.clientWidth;
-webgl.viewportHeight = canvas.clientHeight;
-webgl.drawingBufferWidth = canvas.clientWidth;
-webgl.drawingBufferHeight = canvas.clientHeight;
+Object.defineProperties(webgl, {
+    canvas: { get() { return canvas; } },
+    viewportWidth: { get() { return canvas.clientWidth; }, set(w) { canvas.clientWidth = w; }, },
+    viewportHeight: { get() { return canvas.clientHeight; }, set(h) { canvas.clientHeight = h; }, },
+    drawingBufferWidth: { get() { return canvas.clientWidth; }, set(w) { canvas.clientWidth = w; }, },
+    drawingBufferHeight: { get() { return canvas.clientHeight; }, set(h) { canvas.clientHeight = h; }, },
+});
+
 
 require('./lib/mjolnir');
 
 const glOptions = {
-    canvas, document, gl: webgl,
-    width: webgl.drawingBufferWidth,
-    height: webgl.drawingBufferHeight,
+    gl: webgl,
+    canvas, document,
+    width: canvas.width,
+    height: canvas.height,
 };
 
 module.exports = { glOptions, ...glOptions };

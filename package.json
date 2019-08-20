@@ -23,6 +23,10 @@
     "webgl-raub": "2.0.0",
     "web-streams-polyfill": "^2.0.3"
   },
+  "resolutions": {
+    "**/@deck.gl/core": "6.3.2",
+    "**/@deck.gl/layers": "6.3.2"
+  },
   "esm": {
     "cjs": true,
     "force": true,

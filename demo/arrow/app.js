@@ -41,7 +41,7 @@ const deck = new Deck({
         redrawTimeout = setTimeout(() => {
             redrawTimeout = null;
             redraw({ drawEdges: true });
-        }, 350);
+        }, 250);
     }
 });
 

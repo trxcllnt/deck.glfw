@@ -3,7 +3,7 @@ const SegfaultHandler = require('segfault-handler');
 SegfaultHandler.registerHandler('./crash.log');
 
 // Creates the GLFW Window. Must be required before '@deck.gl/core' so mjolnir is patched first.
-const deckGLFWConfig = require('../');
+const deckGLFWConfig = require('../../');
 
 // deckGLFWConfig.gl.clearColor(1, 1, 1, 1);
 // deckGLFWConfig.gl.clear(deckGLFWConfig.gl.COLOR_BUFFER_BIT);

@@ -15,6 +15,7 @@ global.navigator = require('3d-core-raub/js/core/navigator');
 global.WebVRManager = require('3d-core-raub/js/core/vr-manager');
 
 const document = new Document({
+    vsync: process.platform === 'darwin',
     mode: process.argv.includes('--fullscreen') ? 'fullscreen' :
           process.argv.includes('--borderless') ? 'borderless' : 'windowed',
     glfwInit(glfw) {
@@ -41,10 +42,10 @@ const canvas = document.createElement('canvas');
 
 Object.defineProperties(webgl, {
     canvas: { get() { return canvas; } },
-    viewportWidth: { get() { return canvas.clientWidth; }, set(w) { canvas.clientWidth = w; }, },
-    viewportHeight: { get() { return canvas.clientHeight; }, set(h) { canvas.clientHeight = h; }, },
-    drawingBufferWidth: { get() { return canvas.clientWidth; }, set(w) { canvas.clientWidth = w; }, },
-    drawingBufferHeight: { get() { return canvas.clientHeight; }, set(h) { canvas.clientHeight = h; }, },
+    viewportWidth: { get() { return canvas.width; }, set(w) { canvas.width = w; }, },
+    viewportHeight: { get() { return canvas.height; }, set(h) { canvas.height = h; }, },
+    drawingBufferWidth: { get() { return canvas.width; }, set(w) { canvas.width = w; }, },
+    drawingBufferHeight: { get() { return canvas.height; }, set(h) { canvas.height = h; }, },
 });
 
 

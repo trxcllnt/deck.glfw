@@ -1,5 +1,5 @@
 export default `\
-#version 300 es
+#version 410
 
 in vec2 instanceIds;
 

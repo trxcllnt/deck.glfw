@@ -1,5 +1,5 @@
 export default `\
-#version 300 es
+#version 410
 #define SHADER_NAME line-layer-fragment-shader
 
 precision highp float;

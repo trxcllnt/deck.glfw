@@ -9,13 +9,18 @@ $(node -e 'console.log(require("deps-opengl-raub").bin)'):\
 $(node -e 'console.log(require("deps-freeimage-raub").bin)')\
 "
 
-# set LD_LIBRARY_PATH for Linux, DYLD_LIBRARY_PATH for MacOS
-if [ -v LD_LIBRARY_PATH ]; then
+# set LD_LIBRARY_PATH for Linux
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
     export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$LIB_PATHS";
-    echo "LD_LIBRARY_PATH: $LD_LIBRARY_PATH";
-elif [ -v DYLD_LIBRARY_PATH ]; then
-    export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$LIB_PATHS";
-    echo "DYLD_LIBRARY_PATH: $DYLD_LIBRARY_PATH";
+# Don't need to do anything in OSX
+# elif [[ "$OSTYPE" == "darwin"* ]]; then
+# Don't know if this is necessary in Windows?
+# elif [[ "$OSTYPE" == "cygwin" ]]; then
+#     export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$LIB_PATHS";
+# elif [[ "$OSTYPE" == "msys" ]]; then
+#     export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$LIB_PATHS";
+# elif [[ "$OSTYPE" == "win32" ]]; then
+#     export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$LIB_PATHS";
 fi
 
 FILE=${1:-"basic"};

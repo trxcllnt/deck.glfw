@@ -21,7 +21,7 @@
     "@luma.gl/constants": "^7.2.0-beta.1",
     "@luma.gl/core": "^7.2.0-beta.1",
     "addon-tools-raub": "trxcllnt/addon-tools-raub#node12",
-    "cross-fetch": "^3.0.4",
+    "cross-fetch": "^3.1.5",
     "glfw-raub": "trxcllnt/glfw-raub#node12",
     "image-raub": "2.1.0",
     "math.gl": "^2.3.0",
